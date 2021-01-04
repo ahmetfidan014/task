@@ -1,0 +1,99 @@
+﻿@model List<object>
+@{
+    ViewBag.Title = "ProductAdd";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+    Product ProductMd = (Product)Model[0];
+    List<Photos> PhotosList = (List<Photos>)Model[1];
+    string url = config.url;
+}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h5 class="card-title">@Html.Raw(ProductMd.Id == 0 ? "Ürün Ekle" : "Ürün Düzenle : " + ProductMd.ProductName)</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="Product_form" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="Product_url" value="@Html.Raw(ProductMd.Url)" />
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>Ürün Adı</label>
+                                        <input type="text" class="form-control" value="@Html.Raw(ProductMd.ProductName)" name="ProductName">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pl-1">
+                                    <div class="form-group">
+                                        <label>Barkod</label>
+                                        <input type="number" maxlength="13" class="form-control" value="@Html.Raw(ProductMd.Barcode)" name="Barcode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 pr-1">
+                                    <div class="form-group">
+                                        <label>Fiyat(₺)</label>
+                                        <input type="number" class="form-control" value="@Html.Raw(ProductMd.Price.ToString().Replace(',','.'))" name="Price">
+                                    </div>
+                                </div>
+                                <div class="col-md-5 px-1">
+                                    <div class="form-group">
+                                        <label>Adet</label>
+                                        <input type="number" class="form-control" value="@Html.Raw(ProductMd.Count)" name="Count">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Görselleri Seç</label>
+                                        <input multiple id="@Html.Raw("product-photo-add")" class="file-input" style="opacity:1;" type="file" value="" name="Photo" accept="image/x-png,image/gif,image/jpeg,image/png,image/jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 @Html.Raw("photos_div")">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 allPhotos">
+                                    <label style="margin-top:20px;width:100%;">@Html.Raw(ProductMd.Id == 0 ? "" : PhotosList.Count == 0 ? "Şu anda yüklü fotoğraf yoktur." : "Yüklü Fotoğraflar")</label>
+                                    @foreach (var item in PhotosList)
+                                    {
+                                        <div style="width:20%;padding-top: 33px; padding-right: 5px;">
+                                            <i style="width:100%;display:flex;justify-content:center;color:red;cursor:pointer" title="Sil" data-id="@item.Id" class="fas fa-folder-minus"></i>
+                                            <img style="width:100%;display:flex;justify-content:center" class="@Html.Raw("savedImg imgPrev")" src="@Html.Raw(item.Path)" alt="" />
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Açıklama</label>
+                                        <textarea name="Detail" class="form-control textarea">@Html.Raw(ProductMd.Detail)</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="update ml-auto mr-auto">
+                                    <button type="submit" class="btn btn-primary btn-round">Kaydet</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/ThemeAssets/CustomPages/task.js"></script>
+<script src="~/Areas/Admin/ThemeAssets/CustomPages/product.js"></script>
+<script>
+    product.init();
+</script>

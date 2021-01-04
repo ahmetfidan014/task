@@ -1,0 +1,81 @@
+﻿@model List<object>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/TaskLayout.cshtml";
+    List<Product> productList = (List<Product>)Model[0];
+}
+
+<div style="padding:40px 150px" class="main-content">
+    <div class="content-wrapper">
+        <section id="content-types">
+            <div class="row">
+                <div class="col-12 mt-3 mb-1">
+                    <div style="text-align:center;font-size:32px;" class="content-header">ÜRÜNLER</div>
+                    @if (productList.Count == 0)
+                    {
+                        <p class="content-sub-header">
+                            KAYITLI ÜRÜN BULUNMAMAKTADIR
+                        </p>
+                    }
+                </div>
+            </div>
+            <div class="row match-height">
+                @foreach (Product product in productList)
+                {
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">@Html.Raw(product.ProductName)</h4>
+                                <h6 class="card-subtitle text-muted">@Html.Raw("Bu üründen stokta " + product.Count + " adet bulunmaktadır.")</h6>
+                            </div>
+                            <div class="card-content">
+                                <div id="@Html.Raw("carousel-example-generic" + product.Vid)" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        @for (int i = 0; i < product.Photos.Count; i++)
+                                        {
+                                            <li data-target="@Html.Raw("#carousel-example-generic" + product.Vid)" data-slide-to="@Html.Raw(i)" class="@Html.Raw(i == 0 ? "active" : "")"></li>
+                                        }
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox">
+                                        @foreach (Photos item in product.Photos)
+                                        {
+                                            <div class="carousel-item @Html.Raw(item.Id == product.Photos.First().Id ? "active" : "")">
+                                                <img src="@Html.Raw(item.Path)" class="d-block w-100">
+                                            </div>
+                                        }
+                                    </div>
+                                    <a class="carousel-control-prev" href="@Html.Raw("#carousel-example-generic" + product.Vid)" role="button" data-slide="prev">
+                                        <span class="fa fa-angle-left icon-prev" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="@Html.Raw("#carousel-example-generic" + product.Vid)" role="button" data-slide="next">
+                                        <span class="fa fa-angle-right icon-next" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text barkod">
+                                        @Html.Raw("Ürün Barkod: " + product.Barcode)
+                                    </p>
+                                    <p class="card-text detail">
+                                        @Html.Raw("Ürün Açıklaması: " + product.Detail)
+                                    </p>
+
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <span class="float-left">@Html.Raw(product.Price + "₺")</span>
+                                    <span class="tags float-right">
+                                        <span class="badge bg-warning white"><a>Sepete Ekle</a></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+
+

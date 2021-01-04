@@ -1,0 +1,214 @@
+﻿
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 222;
+    justify-content: center;
+    align-items: center;
+}
+
+    .popup.active {
+        display: flex;
+    }
+
+    .popup .overlay {
+        padding: 30px;
+        background: #fff;
+        position: relative;
+        display: block;
+    }
+
+        .popup .overlay .bilgi-baslik, .popup .overlay .hata-baslik {
+            /* background-color: #51cbce; */
+            color: #51cbce;
+            text-align: center;
+            padding: 6px;
+            font-size: 19px;
+            /* border-radius: 0px; */
+            font-weight: 900;
+        }
+
+        .popup .overlay .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .popup .overlay .buttons.bilgi-button, .popup .overlay .buttons.hata-button {
+                justify-content: center;
+            }
+
+
+.loading-popup {
+    flex-wrap: wrap;
+    z-index: 333;
+}
+
+.btn-orange {
+    color: #fff;
+    background: #ec6608
+}
+
+.btn-blue {
+    color: #fff;
+    background: rgb(0, 148, 255);
+}
+
+.btn-red {
+    color: #fff;
+    background: #9c1f1f;
+}
+
+
+#table-responsive-afid {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.table-responsive .buttons .edit-button {
+    background-color: #51cbce;
+    color: #fff;
+    padding: 8px;
+    border: solid 0.5px #fff;
+    border-radius: 12px;
+}
+
+.table-responsive .buttons .delete-button {
+    background-color: #ef8157;
+    color: #fff;
+    padding: 8px;
+    border: solid 0.5px #fff;
+    border-radius: 12px;
+}
+
+.table-responsive .buttons i {
+    font-weight: 900;
+}
+
+#card-header-afid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+    #card-header-afid .card-title-buttons a {
+        background-color: #51cbce;
+        color: #fff;
+        padding: 8px;
+        border: solid 0.5px #fff;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+
+        #card-header-afid .card-title-buttons a span.yazi {
+            font-size: 15px;
+            /* font-weight:800; */
+            padding: 5px;
+        }
+
+        #card-header-afid .card-title-buttons a span.icon {
+            font-size: 20px;
+            /* font-weight: 800; */
+            padding: 5px;
+        }
+
+.form-group .file-input {
+    margin: 25px 0px 0 0;
+}
+
+.allPhotos {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.savedImg {
+    position: relative;
+}
+
+    .savedImg::after {
+        background-color: #9c1f1f;
+        content: "test";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+        left: -8px;
+        top: -8px;
+        z-index: 9999;
+        border-radius: 5px;
+        box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+    }
+
+.form-group .select-items {
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    height: 35px;
+    padding: 4px;
+}
+
+#editor {
+    border-color: #51bcda;
+}
+
+.logo .logo-normal{
+    margin-left:30px !important;
+}
+.wrapper .login-panel {
+    margin-top: 100px;
+}
+
+.login-panel .card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.login-panel .card {
+    box-shadow: none;
+}
+
+#login_form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+    #login_form .row {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #login_form .flexlist {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #login_form .form-group {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 32%;
+    }
+
+    #login_form .flexlist label {
+        width: 100%;
+    }
+
+    #login_form .flexlist input {
+        width: 100%;
+    }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

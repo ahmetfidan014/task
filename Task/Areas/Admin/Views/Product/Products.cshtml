@@ -1,0 +1,71 @@
+﻿@model List<object>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+    string url = config.url;
+    List<Product> ProductList = (List<Product>)Model[0];
+}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div id="card-header-afid" class="card-header">
+                        <div class="card-explanation">
+                            <h4 class="card-title">Ürünler</h4>
+                            <p class="card-category">Bu sayfadan ürün ekleyebilir, silebilir veya düzenleyebilirsiniz</p>
+                        </div>
+                        <div class="card-title-buttons buttons">
+                            <a href="@Html.Raw(url + "admin/Product/ProductAdd")">
+                                <span class="yazi">YENİ KAYIT</span>
+                                <span class="icon">+</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="table-responsive-afid" class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Başlık
+                                </th>
+                                <th>
+                                    Eklenme Tarihi
+                                </th>
+                                <th>
+                                   Barkod
+                                </th>
+                                <th class="text-right">
+                                    Butonlar
+                                </th>
+                                </thead>
+                                <tbody>
+                                    @foreach (Product Product in ProductList)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Product.ProductName
+                                            </td>
+                                            <td>
+                                                @Product.Datetime
+                                            </td>
+                                            <td>
+                                                @Product.Barcode
+                                            </td>
+                                            <td class="text-right buttons">
+                                                <a class="edit-button" href="@Html.Raw(url + "admin/Product/ProductAdd/" + Product.Url)"><i class="nc-icon nc-zoom-split"></i></a>
+                                                <a data-id="@Product.Id" data-table="@Html.Raw("Product")" class="delete-button" href="#"><i class="nc-icon nc-simple-remove"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/ThemeAssets/CustomPages/task.js"></script>

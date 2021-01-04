@@ -1,0 +1,11 @@
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\Task.DAL.dll.config
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\Task.DAL.dll
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\Task.DAL.pdb
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.csproj.CopyComplete
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.dll
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.pdb

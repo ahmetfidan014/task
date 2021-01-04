@@ -1,0 +1,902 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6ABF4509-6337-40D3-874C-C42344E4AFA3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Task</RootNamespace>
+    <AssemblyName>Task</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\ThemeAssets\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\ThemeAssets\css\paper-dashboard.css" />
+    <Content Include="Areas\Admin\ThemeAssets\css\paper-dashboard.min.css" />
+    <Content Include="Areas\Admin\ThemeAssets\css\style.css" />
+    <Content Include="Areas\Admin\ThemeAssets\CustomPages\product.js" />
+    <Content Include="Areas\Admin\ThemeAssets\CustomPages\login.js" />
+    <Content Include="Areas\Admin\ThemeAssets\CustomPages\task.js" />
+    <Content Include="Areas\Admin\ThemeAssets\demo\demo.css" />
+    <Content Include="Areas\Admin\ThemeAssets\demo\demo.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\core\bootstrap.min.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\core\jquery.min.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\core\popper.min.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\paper-dashboard.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\paper-dashboard.min.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\plugins\bootstrap-notify.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\plugins\chartjs.min.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Areas\Admin\ThemeAssets\js\script.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Public\items\bootstrap.min.css" />
+    <Content Include="Public\items\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Public\items\loading.gif" />
+    <Content Include="Public\items\query.css" />
+    <Content Include="Public\items\style.css" />
+    <Content Include="Public\items\swiper.min.css" />
+    <Content Include="Public\js\bootstrap.min.js" />
+    <Content Include="Public\js\fastclick.js" />
+    <Content Include="Public\js\isonsc.min.js" />
+    <Content Include="Public\js\script.js" />
+    <Content Include="Public\js\swiper.min.js" />
+    <Content Include="Public\js\validate\additional-methods.js" />
+    <Content Include="Public\js\validate\additional-methods.min.js" />
+    <Content Include="Public\js\validate\jquery-validate.bootstrap-tooltip.js" />
+    <Content Include="Public\js\validate\jquery.validate.js" />
+    <Content Include="Public\js\validate\jquery.validate.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ar.js" />
+    <Content Include="Public\js\validate\localization\messages_ar.min.js" />
+    <Content Include="Public\js\validate\localization\messages_bg.js" />
+    <Content Include="Public\js\validate\localization\messages_bg.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ca.js" />
+    <Content Include="Public\js\validate\localization\messages_ca.min.js" />
+    <Content Include="Public\js\validate\localization\messages_cs.js" />
+    <Content Include="Public\js\validate\localization\messages_cs.min.js" />
+    <Content Include="Public\js\validate\localization\messages_da.js" />
+    <Content Include="Public\js\validate\localization\messages_da.min.js" />
+    <Content Include="Public\js\validate\localization\messages_de.js" />
+    <Content Include="Public\js\validate\localization\messages_de.min.js" />
+    <Content Include="Public\js\validate\localization\messages_el.js" />
+    <Content Include="Public\js\validate\localization\messages_el.min.js" />
+    <Content Include="Public\js\validate\localization\messages_es.js" />
+    <Content Include="Public\js\validate\localization\messages_es.min.js" />
+    <Content Include="Public\js\validate\localization\messages_es_AR.js" />
+    <Content Include="Public\js\validate\localization\messages_es_AR.min.js" />
+    <Content Include="Public\js\validate\localization\messages_et.js" />
+    <Content Include="Public\js\validate\localization\messages_et.min.js" />
+    <Content Include="Public\js\validate\localization\messages_eu.js" />
+    <Content Include="Public\js\validate\localization\messages_eu.min.js" />
+    <Content Include="Public\js\validate\localization\messages_fa.js" />
+    <Content Include="Public\js\validate\localization\messages_fa.min.js" />
+    <Content Include="Public\js\validate\localization\messages_fi.js" />
+    <Content Include="Public\js\validate\localization\messages_fi.min.js" />
+    <Content Include="Public\js\validate\localization\messages_fr.js" />
+    <Content Include="Public\js\validate\localization\messages_fr.min.js" />
+    <Content Include="Public\js\validate\localization\messages_gl.js" />
+    <Content Include="Public\js\validate\localization\messages_gl.min.js" />
+    <Content Include="Public\js\validate\localization\messages_he.js" />
+    <Content Include="Public\js\validate\localization\messages_he.min.js" />
+    <Content Include="Public\js\validate\localization\messages_hr.js" />
+    <Content Include="Public\js\validate\localization\messages_hr.min.js" />
+    <Content Include="Public\js\validate\localization\messages_hu.js" />
+    <Content Include="Public\js\validate\localization\messages_hu.min.js" />
+    <Content Include="Public\js\validate\localization\messages_id.js" />
+    <Content Include="Public\js\validate\localization\messages_id.min.js" />
+    <Content Include="Public\js\validate\localization\messages_is.js" />
+    <Content Include="Public\js\validate\localization\messages_is.min.js" />
+    <Content Include="Public\js\validate\localization\messages_it.js" />
+    <Content Include="Public\js\validate\localization\messages_it.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ja.js" />
+    <Content Include="Public\js\validate\localization\messages_ja.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ka.js" />
+    <Content Include="Public\js\validate\localization\messages_ka.min.js" />
+    <Content Include="Public\js\validate\localization\messages_kk.js" />
+    <Content Include="Public\js\validate\localization\messages_kk.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ko.js" />
+    <Content Include="Public\js\validate\localization\messages_ko.min.js" />
+    <Content Include="Public\js\validate\localization\messages_lt.js" />
+    <Content Include="Public\js\validate\localization\messages_lt.min.js" />
+    <Content Include="Public\js\validate\localization\messages_lv.js" />
+    <Content Include="Public\js\validate\localization\messages_lv.min.js" />
+    <Content Include="Public\js\validate\localization\messages_my.js" />
+    <Content Include="Public\js\validate\localization\messages_my.min.js" />
+    <Content Include="Public\js\validate\localization\messages_nl.js" />
+    <Content Include="Public\js\validate\localization\messages_nl.min.js" />
+    <Content Include="Public\js\validate\localization\messages_no.js" />
+    <Content Include="Public\js\validate\localization\messages_no.min.js" />
+    <Content Include="Public\js\validate\localization\messages_pl.js" />
+    <Content Include="Public\js\validate\localization\messages_pl.min.js" />
+    <Content Include="Public\js\validate\localization\messages_pt_BR.js" />
+    <Content Include="Public\js\validate\localization\messages_pt_BR.min.js" />
+    <Content Include="Public\js\validate\localization\messages_pt_PT.js" />
+    <Content Include="Public\js\validate\localization\messages_pt_PT.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ro.js" />
+    <Content Include="Public\js\validate\localization\messages_ro.min.js" />
+    <Content Include="Public\js\validate\localization\messages_ru.js" />
+    <Content Include="Public\js\validate\localization\messages_ru.min.js" />
+    <Content Include="Public\js\validate\localization\messages_si.js" />
+    <Content Include="Public\js\validate\localization\messages_si.min.js" />
+    <Content Include="Public\js\validate\localization\messages_sk.js" />
+    <Content Include="Public\js\validate\localization\messages_sk.min.js" />
+    <Content Include="Public\js\validate\localization\messages_sl.js" />
+    <Content Include="Public\js\validate\localization\messages_sl.min.js" />
+    <Content Include="Public\js\validate\localization\messages_sr.js" />
+    <Content Include="Public\js\validate\localization\messages_sr.min.js" />
+    <Content Include="Public\js\validate\localization\messages_sr_lat.js" />
+    <Content Include="Public\js\validate\localization\messages_sr_lat.min.js" />
+    <Content Include="Public\js\validate\localization\messages_sv.js" />
+    <Content Include="Public\js\validate\localization\messages_sv.min.js" />
+    <Content Include="Public\js\validate\localization\messages_th.js" />
+    <Content Include="Public\js\validate\localization\messages_th.min.js" />
+    <Content Include="Public\js\validate\localization\messages_tj.js" />
+    <Content Include="Public\js\validate\localization\messages_tj.min.js" />
+    <Content Include="Public\js\validate\localization\messages_tr.js" />
+    <Content Include="Public\js\validate\localization\messages_tr.min.js" />
+    <Content Include="Public\js\validate\localization\messages_uk.js" />
+    <Content Include="Public\js\validate\localization\messages_uk.min.js" />
+    <Content Include="Public\js\validate\localization\messages_vi.js" />
+    <Content Include="Public\js\validate\localization\messages_vi.min.js" />
+    <Content Include="Public\js\validate\localization\messages_zh.js" />
+    <Content Include="Public\js\validate\localization\messages_zh.min.js" />
+    <Content Include="Public\js\validate\localization\messages_zh_TW.js" />
+    <Content Include="Public\js\validate\localization\messages_zh_TW.min.js" />
+    <Content Include="Public\js\validate\localization\methods_de.js" />
+    <Content Include="Public\js\validate\localization\methods_de.min.js" />
+    <Content Include="Public\js\validate\localization\methods_es_CL.js" />
+    <Content Include="Public\js\validate\localization\methods_es_CL.min.js" />
+    <Content Include="Public\js\validate\localization\methods_fi.js" />
+    <Content Include="Public\js\validate\localization\methods_fi.min.js" />
+    <Content Include="Public\js\validate\localization\methods_nl.js" />
+    <Content Include="Public\js\validate\localization\methods_nl.min.js" />
+    <Content Include="Public\js\validate\localization\methods_pt.js" />
+    <Content Include="Public\js\validate\localization\methods_pt.min.js" />
+    <Content Include="Public\theme\css-rtl\app.css" />
+    <Content Include="Public\theme\css-rtl\app.min.css" />
+    <Content Include="Public\theme\css-rtl\custom-rtl.css" />
+    <Content Include="Public\theme\css-rtl\custom-rtl.min.css" />
+    <Content Include="Public\theme\css\app.css" />
+    <Content Include="Public\theme\css\app.min.css" />
+    <Content Include="Public\theme\data\datatables\ajax-child-rows.txt" />
+    <Content Include="Public\theme\data\fullcalendar\php\get-events.php" />
+    <Content Include="Public\theme\data\fullcalendar\php\get-timezones.php" />
+    <Content Include="Public\theme\data\fullcalendar\php\utils.php" />
+    <Content Include="Public\theme\data\jqvmaps\jquery.vmap.sampledata.js" />
+    <Content Include="Public\theme\fonts\data-table.svg" />
+    <Content Include="Public\theme\fonts\feather\fonts\feather.svg" />
+    <Content Include="Public\theme\fonts\feather\style.css" />
+    <Content Include="Public\theme\fonts\feather\style.min.css" />
+    <Content Include="Public\theme\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Public\theme\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Public\theme\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Public\theme\fonts\simple-line-icons\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Public\theme\fonts\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Public\theme\fonts\simple-line-icons\style-origin.css" />
+    <Content Include="Public\theme\fonts\simple-line-icons\style.css" />
+    <Content Include="Public\theme\fonts\simple-line-icons\style.min.css" />
+    <Content Include="Public\theme\fonts\weathericons\weathericons-regular-webfont.svg" />
+    <Content Include="Public\theme\img\crop-pic.jpg" />
+    <Content Include="Public\theme\img\elements\01.png" />
+    <Content Include="Public\theme\img\elements\02.png" />
+    <Content Include="Public\theme\img\elements\03.png" />
+    <Content Include="Public\theme\img\elements\04.png" />
+    <Content Include="Public\theme\img\elements\05.png" />
+    <Content Include="Public\theme\img\elements\06.png" />
+    <Content Include="Public\theme\img\elements\07.png" />
+    <Content Include="Public\theme\img\elements\08.png" />
+    <Content Include="Public\theme\img\elements\09.png" />
+    <Content Include="Public\theme\img\elements\10.png" />
+    <Content Include="Public\theme\img\elements\11.png" />
+    <Content Include="Public\theme\img\elements\12.png" />
+    <Content Include="Public\theme\img\elements\13.png" />
+    <Content Include="Public\theme\img\elements\14.png" />
+    <Content Include="Public\theme\img\flags\br.png" />
+    <Content Include="Public\theme\img\flags\de.png" />
+    <Content Include="Public\theme\img\flags\es.png" />
+    <Content Include="Public\theme\img\flags\us.png" />
+    <Content Include="Public\theme\img\gallery\05.jpg" />
+    <Content Include="Public\theme\img\gallery\1.jpg" />
+    <Content Include="Public\theme\img\gallery\10.jpg" />
+    <Content Include="Public\theme\img\gallery\11.jpg" />
+    <Content Include="Public\theme\img\gallery\12.jpg" />
+    <Content Include="Public\theme\img\gallery\13.jpg" />
+    <Content Include="Public\theme\img\gallery\14.jpg" />
+    <Content Include="Public\theme\img\gallery\15.jpg" />
+    <Content Include="Public\theme\img\gallery\16.jpg" />
+    <Content Include="Public\theme\img\gallery\17.jpg" />
+    <Content Include="Public\theme\img\gallery\18.jpg" />
+    <Content Include="Public\theme\img\gallery\19.jpg" />
+    <Content Include="Public\theme\img\gallery\2.jpg" />
+    <Content Include="Public\theme\img\gallery\20.jpg" />
+    <Content Include="Public\theme\img\gallery\21.jpg" />
+    <Content Include="Public\theme\img\gallery\22.jpg" />
+    <Content Include="Public\theme\img\gallery\23.jpg" />
+    <Content Include="Public\theme\img\gallery\24.jpg" />
+    <Content Include="Public\theme\img\gallery\25.jpg" />
+    <Content Include="Public\theme\img\gallery\26.jpg" />
+    <Content Include="Public\theme\img\gallery\27.jpg" />
+    <Content Include="Public\theme\img\gallery\28.jpg" />
+    <Content Include="Public\theme\img\gallery\29.jpg" />
+    <Content Include="Public\theme\img\gallery\3.jpg" />
+    <Content Include="Public\theme\img\gallery\30.jpg" />
+    <Content Include="Public\theme\img\gallery\31.jpg" />
+    <Content Include="Public\theme\img\gallery\32.jpg" />
+    <Content Include="Public\theme\img\gallery\33.jpg" />
+    <Content Include="Public\theme\img\gallery\4.jpg" />
+    <Content Include="Public\theme\img\gallery\5.jpg" />
+    <Content Include="Public\theme\img\gallery\6.jpg" />
+    <Content Include="Public\theme\img\gallery\7.jpg" />
+    <Content Include="Public\theme\img\gallery\8.jpg" />
+    <Content Include="Public\theme\img\gallery\9.jpg" />
+    <Content Include="Public\theme\img\gallery\auth-bg.jpg" />
+    <Content Include="Public\theme\img\gallery\bg-glass-1.jpg" />
+    <Content Include="Public\theme\img\gallery\bg-glass-2.jpg" />
+    <Content Include="Public\theme\img\gallery\bg-glass-3.jpg" />
+    <Content Include="Public\theme\img\gallery\bg-glass-4.jpg" />
+    <Content Include="Public\theme\img\gallery\coming-soon.png" />
+    <Content Include="Public\theme\img\gallery\dark-bg.jpg" />
+    <Content Include="Public\theme\img\gallery\error.png" />
+    <Content Include="Public\theme\img\gallery\forgot.png" />
+    <Content Include="Public\theme\img\gallery\light-bg.jpg" />
+    <Content Include="Public\theme\img\gallery\lock.png" />
+    <Content Include="Public\theme\img\gallery\login.png" />
+    <Content Include="Public\theme\img\gallery\maintenance.png" />
+    <Content Include="Public\theme\img\gallery\register.png" />
+    <Content Include="Public\theme\img\icons\thumbs-up.jpg" />
+    <Content Include="Public\theme\img\ico\favicon-32.png" />
+    <Content Include="Public\theme\img\ico\favicon.ico" />
+    <Content Include="Public\theme\img\logo-dark.png" />
+    <Content Include="Public\theme\img\logo.png" />
+    <Content Include="Public\theme\img\logos\logo-big-black.png" />
+    <Content Include="Public\theme\img\logos\logo-big-white.png" />
+    <Content Include="Public\theme\img\logos\logo-color-big.png" />
+    <Content Include="Public\theme\img\oval.svg" />
+    <Content Include="Public\theme\img\pages\signature-scan.png" />
+    <Content Include="Public\theme\img\photos\01.jpg" />
+    <Content Include="Public\theme\img\photos\02.jpg" />
+    <Content Include="Public\theme\img\photos\03.jpg" />
+    <Content Include="Public\theme\img\photos\04.jpg" />
+    <Content Include="Public\theme\img\photos\05.jpg" />
+    <Content Include="Public\theme\img\photos\06.jpg" />
+    <Content Include="Public\theme\img\photos\07.jpg" />
+    <Content Include="Public\theme\img\photos\08.jpg" />
+    <Content Include="Public\theme\img\photos\09.jpg" />
+    <Content Include="Public\theme\img\photos\10.jpg" />
+    <Content Include="Public\theme\img\photos\11.jpg" />
+    <Content Include="Public\theme\img\photos\12.jpg" />
+    <Content Include="Public\theme\img\photos\13.jpg" />
+    <Content Include="Public\theme\img\photos\14.jpg" />
+    <Content Include="Public\theme\img\photos\15.jpg" />
+    <Content Include="Public\theme\img\photos\16.jpg" />
+    <Content Include="Public\theme\img\photos\17.jpg" />
+    <Content Include="Public\theme\img\photos\weather-1.jpg" />
+    <Content Include="Public\theme\img\photos\weather-2.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-01.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-02.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-03.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-04.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-05.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-06.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-07.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-08.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-09.png" />
+    <Content Include="Public\theme\img\portrait\avatars\avatar-10.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-1.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-10.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-11.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-12.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-13.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-14.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-15.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-16.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-17.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-18.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-19.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-2.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-20.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-21.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-22.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-23.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-24.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-25.jpg" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-3.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-4.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-5.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-6.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-7.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-8.png" />
+    <Content Include="Public\theme\img\portrait\medium\avatar-m-9.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-1.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-10.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-11.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-12.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-13.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-14.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-15.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-16.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-17.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-18.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-19.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-2.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-20.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-21.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-22.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-23.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-24.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-25.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-26.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-3.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-4.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-5.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-6.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-7.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-8.png" />
+    <Content Include="Public\theme\img\portrait\small\avatar-s-9.png" />
+    <Content Include="Public\theme\img\sidebar-bg\01.jpg" />
+    <Content Include="Public\theme\img\sidebar-bg\02.jpg" />
+    <Content Include="Public\theme\img\sidebar-bg\03.jpg" />
+    <Content Include="Public\theme\img\sidebar-bg\04.jpg" />
+    <Content Include="Public\theme\img\sidebar-bg\05.jpg" />
+    <Content Include="Public\theme\img\sidebar-bg\06.jpg" />
+    <Content Include="Public\theme\img\svg\cd-arrow.svg" />
+    <Content Include="Public\theme\js\app-sidebar.js" />
+    <Content Include="Public\theme\js\app-sidebar.min.js" />
+    <Content Include="Public\theme\js\basic-inputs.js" />
+    <Content Include="Public\theme\js\basic-inputs.min.js" />
+    <Content Include="Public\theme\js\bootstrap-toast.js" />
+    <Content Include="Public\theme\js\bootstrap-toast.min.js" />
+    <Content Include="Public\theme\js\chartist.js" />
+    <Content Include="Public\theme\js\chartist.min.js" />
+    <Content Include="Public\theme\js\chartjs.js" />
+    <Content Include="Public\theme\js\chartjs.min.js" />
+    <Content Include="Public\theme\js\chat.js" />
+    <Content Include="Public\theme\js\chat.min.js" />
+    <Content Include="Public\theme\js\coming-soon.js" />
+    <Content Include="Public\theme\js\coming-soon.min.js" />
+    <Content Include="Public\theme\js\coming-soon\coming-soon.js" />
+    <Content Include="Public\theme\js\coming-soon\coming-soon.min.js" />
+    <Content Include="Public\theme\js\coming-soon\jquery.countdown.js" />
+    <Content Include="Public\theme\js\coming-soon\jquery.countdown.min.js" />
+    <Content Include="Public\theme\js\components-modal.js" />
+    <Content Include="Public\theme\js\components-modal.min.js" />
+    <Content Include="Public\theme\js\customizer.js" />
+    <Content Include="Public\theme\js\customizer.min.js" />
+    <Content Include="Public\theme\js\dashboard1.js" />
+    <Content Include="Public\theme\js\dashboard1.min.js" />
+    <Content Include="Public\theme\js\dashboard2.js" />
+    <Content Include="Public\theme\js\dashboard2.min.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-advanced.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-advanced.min.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-api.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-api.min.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-basic.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-basic.min.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-styling.js" />
+    <Content Include="Public\theme\js\data-tables\datatable-styling.min.js" />
+    <Content Include="Public\theme\js\data-tables\datatables-sources.js" />
+    <Content Include="Public\theme\js\data-tables\datatables-sources.min.js" />
+    <Content Include="Public\theme\js\draggable.js" />
+    <Content Include="Public\theme\js\draggable.min.js" />
+    <Content Include="Public\theme\js\dropzone.js" />
+    <Content Include="Public\theme\js\dropzone.min.js" />
+    <Content Include="Public\theme\js\form-validation.js" />
+    <Content Include="Public\theme\js\form-validation.min.js" />
+    <Content Include="Public\theme\js\fullcalendar.js" />
+    <Content Include="Public\theme\js\fullcalendar.min.js" />
+    <Content Include="Public\theme\js\horizontal-timeline.js" />
+    <Content Include="Public\theme\js\horizontal-timeline.min.js" />
+    <Content Include="Public\theme\js\image-cropper.js" />
+    <Content Include="Public\theme\js\image-cropper.min.js" />
+    <Content Include="Public\theme\js\inbox.js" />
+    <Content Include="Public\theme\js\inbox.min.js" />
+    <Content Include="Public\theme\js\jquery.steps.min.js" />
+    <Content Include="Public\theme\js\maps.js" />
+    <Content Include="Public\theme\js\maps.min.js" />
+    <Content Include="Public\theme\js\notification-sidebar.js" />
+    <Content Include="Public\theme\js\notification-sidebar.min.js" />
+    <Content Include="Public\theme\js\noui-slider.js" />
+    <Content Include="Public\theme\js\noui-slider.min.js" />
+    <Content Include="Public\theme\js\pick-a-datetime.js" />
+    <Content Include="Public\theme\js\pick-a-datetime.min.js" />
+    <Content Include="Public\theme\js\popover.js" />
+    <Content Include="Public\theme\js\popover.min.js" />
+    <Content Include="Public\theme\js\quill.js" />
+    <Content Include="Public\theme\js\quill.min.js" />
+    <Content Include="Public\theme\js\sweet-alerts.js" />
+    <Content Include="Public\theme\js\sweet-alerts.min.js" />
+    <Content Include="Public\theme\js\switch.js" />
+    <Content Include="Public\theme\js\switch.min.js" />
+    <Content Include="Public\theme\js\tagging.js" />
+    <Content Include="Public\theme\js\tagging.min.js" />
+    <Content Include="Public\theme\js\taskboard.js" />
+    <Content Include="Public\theme\js\taskboard.min.js" />
+    <Content Include="Public\theme\js\toastr.js" />
+    <Content Include="Public\theme\js\toastr.min.js" />
+    <Content Include="Public\theme\js\tooltip.js" />
+    <Content Include="Public\theme\js\tooltip.min.js" />
+    <Content Include="Public\theme\js\tour.js" />
+    <Content Include="Public\theme\js\tour.min.js" />
+    <Content Include="Public\theme\js\wizard-steps.js" />
+    <Content Include="Public\theme\js\wizard-steps.min.js" />
+    <Content Include="Public\theme\vendors\css\chartist.min.css" />
+    <Content Include="Public\theme\vendors\css\core\bootstrap.min.css" />
+    <Content Include="Public\theme\vendors\css\daterangepicker.css" />
+    <Content Include="Public\theme\vendors\css\dragula.min.css" />
+    <Content Include="Public\theme\vendors\css\dropzone.min.css" />
+    <Content Include="Public\theme\vendors\css\fullcalendar.min.css" />
+    <Content Include="Public\theme\vendors\css\hopscotch.css" />
+    <Content Include="Public\theme\vendors\css\katex.min.css" />
+    <Content Include="Public\theme\vendors\css\monokai-sublime.min.css" />
+    <Content Include="Public\theme\vendors\css\nouislider.min.css" />
+    <Content Include="Public\theme\vendors\css\perfect-scrollbar.min.css" />
+    <Content Include="Public\theme\vendors\css\pickadate\classic.css" />
+    <Content Include="Public\theme\vendors\css\pickadate\classic.date.css" />
+    <Content Include="Public\theme\vendors\css\pickadate\classic.time.css" />
+    <Content Include="Public\theme\vendors\css\pickadate\default.css" />
+    <Content Include="Public\theme\vendors\css\pickadate\default.time.css" />
+    <Content Include="Public\theme\vendors\css\pickadate\pickadate.css" />
+    <Content Include="Public\theme\vendors\css\prism.min.css" />
+    <Content Include="Public\theme\vendors\css\quill.bubble.css" />
+    <Content Include="Public\theme\vendors\css\quill.snow.css" />
+    <Content Include="Public\theme\vendors\css\sweetalert2.min.css" />
+    <Content Include="Public\theme\vendors\css\switchery.min.css" />
+    <Content Include="Public\theme\vendors\css\tables\datatable\buttons.bootstrap4.min.css" />
+    <Content Include="Public\theme\vendors\css\tables\datatable\dataTables.bootstrap4.min.css" />
+    <Content Include="Public\theme\vendors\css\tables\datatable\datatables.min.css" />
+    <Content Include="Public\theme\vendors\css\tables\datatable\jquery.dataTables.min.css" />
+    <Content Include="Public\theme\vendors\css\tables\datatable\responsive.dataTables.min.css" />
+    <Content Include="Public\theme\vendors\css\tables\datatable\select.dataTables.min.css" />
+    <Content Include="Public\theme\vendors\css\tagging.css" />
+    <Content Include="Public\theme\vendors\css\toastr.css" />
+    <Content Include="Public\theme\vendors\css\wizard.css" />
+    <Content Include="Public\theme\vendors\js\bootstrap-checkbox.min.js" />
+    <Content Include="Public\theme\vendors\js\chart.min.js" />
+    <Content Include="Public\theme\vendors\js\chartist.min.js" />
+    <Content Include="Public\theme\vendors\js\core\bootstrap.min.js" />
+    <Content Include="Public\theme\vendors\js\core\jquery-3.2.1.min.js" />
+    <Content Include="Public\theme\vendors\js\core\popper.min.js" />
+    <Content Include="Public\theme\vendors\js\cropper.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\buttons.flash.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\buttons.html5.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\buttons.print.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\dataTables.buttons.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\datatables.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\dataTables.responsive.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\jszip.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\pdfmake.min.js" />
+    <Content Include="Public\theme\vendors\js\datatable\vfs_fonts.js" />
+    <Content Include="Public\theme\vendors\js\daterangepicker.js" />
+    <Content Include="Public\theme\vendors\js\dragula.min.js" />
+    <Content Include="Public\theme\vendors\js\dropzone.min.js" />
+    <Content Include="Public\theme\vendors\js\fullcalendar.min.js" />
+    <Content Include="Public\theme\vendors\js\gmaps.min.js" />
+    <Content Include="Public\theme\vendors\js\highlight.min.js" />
+    <Content Include="Public\theme\vendors\js\hopscotch.min.js" />
+    <Content Include="Public\theme\vendors\js\horizontal-timeline.js" />
+    <Content Include="Public\theme\vendors\js\jqBootstrapValidation.js" />
+    <Content Include="Public\theme\vendors\js\jquery-ui.min.js" />
+    <Content Include="Public\theme\vendors\js\jquery.countdown.min.js" />
+    <Content Include="Public\theme\vendors\js\jquery.matchHeight-min.js" />
+    <Content Include="Public\theme\vendors\js\jquery.steps.min.js" />
+    <Content Include="Public\theme\vendors\js\jquery.validate.min.js" />
+    <Content Include="Public\theme\vendors\js\katex.min.js" />
+    <Content Include="Public\theme\vendors\js\moment.min.js" />
+    <Content Include="Public\theme\vendors\js\nouislider.min.js" />
+    <Content Include="Public\theme\vendors\js\pace\pace.js" />
+    <Content Include="Public\theme\vendors\js\pace\pace.min.js" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\black\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\blue\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\green\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\orange\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\pink\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\purple\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\red\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\silver\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\white\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-barber-shop.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-big-counter.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-bounce.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-center-atom.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-center-circle.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-center-radar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-center-simple.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-corner-indicator.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-fill-left.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-flash.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-flat-top.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-loading-bar.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-mac-osx.css" />
+    <Content Include="Public\theme\vendors\js\pace\themes\yellow\pace-theme-minimal.css" />
+    <Content Include="Public\theme\vendors\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Public\theme\vendors\js\pickadate\legacy.js" />
+    <Content Include="Public\theme\vendors\js\pickadate\picker.date.js" />
+    <Content Include="Public\theme\vendors\js\pickadate\picker.js" />
+    <Content Include="Public\theme\vendors\js\pickadate\picker.time.js" />
+    <Content Include="Public\theme\vendors\js\prism.min.js" />
+    <Content Include="Public\theme\vendors\js\quill.min.js" />
+    <Content Include="Public\theme\vendors\js\screenfull.min.js" />
+    <Content Include="Public\theme\vendors\js\sweetalert2.min.js" />
+    <Content Include="Public\theme\vendors\js\switchery.min.js" />
+    <Content Include="Public\theme\vendors\js\tagging.min.js" />
+    <Content Include="Public\theme\vendors\js\toastr.min.js" />
+    <Content Include="Public\theme\vendors\js\unslider.min.js" />
+    <Content Include="Public\theme\vendors\js\vertical-timeline.js" />
+    <Content Include="Public\theme\vendors\js\wizard-steps.js" />
+    <Content Include="Public\theme\vendors\js\wNumb.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Welcome.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Welcome.cshtml" />
+    <Content Include="Areas\Admin\ThemeAssets\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\ThemeAssets\css\paper-dashboard.css.map" />
+    <Content Include="Areas\Admin\ThemeAssets\fonts\nucleo-icons.eot" />
+    <Content Include="Areas\Admin\ThemeAssets\fonts\nucleo-icons.ttf" />
+    <Content Include="Areas\Admin\ThemeAssets\fonts\nucleo-icons.woff" />
+    <Content Include="Areas\Admin\ThemeAssets\fonts\nucleo-icons.woff2" />
+    <Content Include="Areas\Admin\ThemeAssets\js\paper-dashboard.js.map" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\cards\_card-chart.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\cards\_card-map.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\cards\_card-plain.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\cards\_card-stats.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\cards\_card-user.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_buttons.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_cards.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_dropdown.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_inputs.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_page-header.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_transparency.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\plugins\_plugin-animate-bootstrap-notify.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_alerts.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_animated-buttons.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_buttons.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_cards.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_checkboxes-radio.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_dropdown.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_fixed-plugin.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_footers.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_images.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_inputs.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_misc.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_mixins.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_navbar.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_nucleo-outline.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_page-header.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_responsive.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_tables.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_typography.scss" />
+    <Content Include="Areas\Admin\ThemeAssets\scss\paper-dashboard\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Product\Products.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ProductAdd.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\TaskLayout.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Public\theme\data\datatables\ajax-child-rows.json" />
+    <Content Include="Public\theme\data\datatables\ajax-sourced.json" />
+    <Content Include="Public\theme\data\datatables\server-side.json" />
+    <Content Include="Public\theme\data\gmaps\foursquare.json" />
+    <Content Include="Public\theme\fonts\data-table.eot" />
+    <Content Include="Public\theme\fonts\data-table.ttf" />
+    <Content Include="Public\theme\fonts\data-table.woff" />
+    <Content Include="Public\theme\fonts\feather\fonts\feather.eot" />
+    <Content Include="Public\theme\fonts\feather\fonts\feather.ttf" />
+    <Content Include="Public\theme\fonts\feather\fonts\feather.woff" />
+    <Content Include="Public\theme\fonts\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Public\theme\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Public\theme\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Public\theme\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Public\theme\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Public\theme\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Public\theme\fonts\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Public\theme\fonts\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Public\theme\fonts\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Public\theme\fonts\weathericons\weathericons-regular-webfont.eot" />
+    <Content Include="Public\theme\fonts\weathericons\weathericons-regular-webfont.ttf" />
+    <Content Include="Public\theme\fonts\weathericons\weathericons-regular-webfont.woff" />
+    <Content Include="Public\theme\fonts\weathericons\weathericons-regular-webfont.woff2" />
+    <Content Include="Public\theme\vendors\css\fonts\KaTeX_Main-Regular.woff2" />
+    <Content Include="Public\theme\vendors\css\fonts\KaTeX_Math-Italic.woff2" />
+    <Content Include="Public\theme\vendors\js\pace\.bower.json" />
+    <Content Include="Public\theme\vendors\js\pace\bower.json" />
+    <Content Include="Public\theme\vendors\js\pace\install.json" />
+    <Content Include="Public\theme\vendors\js\pace\LICENSE" />
+    <Content Include="Public\theme\vendors\js\pace\pace.coffee" />
+    <Content Include="Public\theme\vendors\js\pace\README.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\ThemeAssets\img\" />
+    <Folder Include="Public\upload\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Task.BLL\Task.BLL.csproj">
+      <Project>{669a78ad-dc8a-4d22-b68c-e627e2724727}</Project>
+      <Name>Task.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Task.DAL\Task.DAL.csproj">
+      <Project>{7b3cb517-b44d-464c-a782-94a157080422}</Project>
+      <Name>Task.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55815</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55815/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

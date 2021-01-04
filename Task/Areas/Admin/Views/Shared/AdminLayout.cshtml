@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+@{
+    string url = config.url;
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | Yönetim Paneli</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/validate/jquery.validate.js")"></script>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="@Html.Raw(url+"public/items/jquery.mCustomScrollbar.min.css")" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/public/items/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="@Html.Raw(url+"public/items/bootstrap.min.css")" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="@Html.Raw(url+"areas/admin/ThemeAssets/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Html.Raw(url+"areas/admin/ThemeAssets/css/paper-dashboard.css?v=2.0.0")" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="@Html.Raw(url+"areas/admin/ThemeAssets/css/style.css")" />
+</head>
+<body>
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
+                <a href="#" class="simple-text logo-normal">
+                    ADMİN PANELİ
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li>
+                        <a data-table="AnaSayfa" href="@Html.Raw(url + "admin/Home/Welcome")">
+                            <i class="nc-icon nc-bank"></i>
+                            <p>ANA SAYFA</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-table="product" href="@Html.Raw(url + "admin/Product/Products")">
+                            <i class="nc-icon nc-app"></i>
+                            <p>ÜRÜNLER</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Html.Raw(url + "admin/Login/logout")" ">
+                            <i class="nc-icon nc-user-run"></i>
+                            <p>ÇIKIŞ</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    <div class="popup delete-popup">
+        <div class="overlay">
+            <p>Bu nesneyi silmek istediğinizden emin misiniz?</p>
+            <div class="buttons">
+                <a id="id-delete" href="#" class="btn btn-red">
+                    Sil
+                </a>
+                <a href="#" class="btn btn-orange">
+                    Geri
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="popup hata-popup">
+        <div class="overlay">
+            <p class="hata-baslik">HATA!</p>
+            <div class="hata-icerik">
+                <p>İÇERİK</p>
+            </div>
+            <div class="buttons hata-button">
+                <a href="#" class="btn btn-orange">
+                    TAMAM
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="popup bilgi-popup">
+        <div class="overlay">
+            <p class="bilgi-baslik">BİLGİLENDİRME</p>
+            <div class="bilgi-icerik">
+                <p>İÇERİK</p>
+            </div>
+            <div class="buttons bilgi-button">
+                <a href="#" class="btn btn-orange">
+                    TAMAM
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="popup loading-popup">
+        <div class="overlay">
+            <img src="@Html.Raw(url+"public/items/loading.gif")" />
+        </div>
+        <div id="status"></div>
+    </div>
+    <script type="text/javascript" src="@Html.Raw(url+"/public/js/swiper.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/fastclick.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/isonsc.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/validate/jquery.validate.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/validate/additional-methods.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/validate/localization/messages_tr.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"public/js/validate/jquery-validate.bootstrap-tooltip.js")"></script>
+
+    <script src="@Html.Raw(url+"areas/admin/ThemeAssets/js/core/popper.min.js")"></script>
+    <script src="@Html.Raw(url+"areas/admin/ThemeAssets/js/core/bootstrap.min.js")"></script>
+    <script src="@Html.Raw(url+"areas/admin/ThemeAssets/js/plugins/perfect-scrollbar.jquery.min.js")"></script>
+    <script type="text/javascript" src="@Html.Raw(url+"areas/admin/ThemeAssets/js/script.js")"></script>
+    <script src="@Html.Raw(url+"areas/admin/ThemeAssets/js/plugins/bootstrap-notify.js")"></script>
+</body>
+</html>
