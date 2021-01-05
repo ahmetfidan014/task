@@ -13,8 +13,8 @@ namespace Task.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepository<Product> _product;
-        public HomeController(IRepository<Product> _Product)
+        private IProductService _product;
+        public HomeController(IProductService _Product)
         {
             _product = _Product;
         }

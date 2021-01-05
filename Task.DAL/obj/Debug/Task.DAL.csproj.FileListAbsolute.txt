@@ -9,3 +9,4 @@ C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.csproj.Core
 C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.csproj.CopyComplete
 C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.dll
 C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.pdb
+C:\Users\Ahmet\Desktop\örnek proje\Task\Task.DAL\obj\Debug\Task.DAL.csprojAssemblyReference.cache

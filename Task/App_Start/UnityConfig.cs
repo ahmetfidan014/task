@@ -23,6 +23,7 @@ namespace Task
              container.RegisterType<IRepository<Photos>, GenericRepository<Photos>>();
              container.RegisterType<IRepository<User>, GenericRepository<User>>();
              container.RegisterType<IProductService, ProductBLL>();
+             container.RegisterType<IUserService, UserBLL>();
             
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IProductService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Managers\AtributteBLL.cs" />
     <Compile Include="Managers\AuthBLL.cs" />
     <Compile Include="Managers\PhotosBLL.cs" />

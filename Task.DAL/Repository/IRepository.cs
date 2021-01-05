@@ -20,8 +20,6 @@ namespace Task.DAL
         List<T> GetAll(Expression<Func<T, bool>> filter = null,
             string includeProperties = "");
         int Count(Expression<Func<T, bool>> filter = null, string includeProperties = "");
-        //IOrderedQueryable<T> ApplyOrder(Expression<Func<T, bool>> predicate, string property, string methodName);
-        //IQueryable<T> GetQuery(Expression<Func<T, bool>> filter = null, string includeProperties = "");
         T GetById(object id);
         T GetFirstOrDefault(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includes);
         void InsertOrUpdate(T entity, int id);
@@ -30,7 +28,6 @@ namespace Task.DAL
         void Delete(T entityToDelete);
         void Update(T entityToUpdate);
         void Save();
-        //void Dispose(bool disposing);
         void Dispose();
     }
 }
